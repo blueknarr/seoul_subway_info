@@ -6,12 +6,12 @@ extension ToSubway on RealtimeArrivalList {
     return Subway(
       subwayDirection: trainLineNm ?? '',
       currentStation: statnNm ?? '',
-      nextStation: statnTid ?? '',
+      upDownLine: updnLine ?? '',
       lineNumber: subwayId ?? '',
       terminalStation: bstatnNm ?? '',
       firstSubway: arvlMsg2 ?? '',
       secondSubway: arvlMsg3 ?? '',
-      arrivalTime: arvlCd ?? '',
+      arrivalTime: barvlDt ?? '',
     );
   }
 }

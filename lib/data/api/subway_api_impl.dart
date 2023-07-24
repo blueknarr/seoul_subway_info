@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class SubwayApiImpl implements SubwayApi {
   @override
-  Future<SubwayDto> getSubwayInfo(String station) async {
+  Future<SubwayDto> getSubwayTimeTables(String station) async {
     final url =
         'http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/$station';
 

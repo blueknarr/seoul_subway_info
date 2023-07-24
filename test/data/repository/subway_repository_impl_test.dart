@@ -5,7 +5,7 @@ void main() {
   test('지하철 공공 api repository 테스트', () async {
     String currentStation = '문래';
     final repository = SubwayRepositoryImpl();
-    final subwayInfo = await repository.getSubwayInfo(currentStation);
+    final subwayInfo = await repository.getSubwayTimeTables(currentStation);
 
     expect(subwayInfo[0].currentStation, currentStation);
   });

@@ -8,10 +8,10 @@ class SubwayRepositoryImpl implements SubwayRepository {
   final _api = SubwayApiImpl();
 
   @override
-  Future<List<Subway>> getSubwayInfo(String station) async {
-    final resultDto = await _api.getSubwayInfo(station);
+  Future<List<Subway>> getSubwayTimeTables(String station) async {
+    final resultDto = await _api.getSubwayTimeTables(station);
 
-    if (resultDto == null) {
+    if (resultDto.realtimeArrivalList == null) {
       return [];
     }
     return resultDto.realtimeArrivalList!.map((e) => e.toSubway()).toList();
