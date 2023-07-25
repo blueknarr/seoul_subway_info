@@ -1,10 +1,12 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:injectable/injectable.dart';
 import 'package:seoul_subway_info/domain/repository/subway_repository.dart';
 
 import '../../core/result/result.dart';
 import '../../data/data_source/local/station_location_info.dart';
 import '../model/subway.dart';
 
+@singleton
 class FindNearestStationUseCase {
   final SubwayRepository repository;
 
@@ -51,11 +53,17 @@ class FindNearestStationUseCase {
           nearestStation = '${data["statn_nm"]}';
         }
       }
-      return Result.success(
-          await repository.getSubwayTimeTables(nearestStation));
+
+      final subwayTimeTables =
+          await repository.getSubwayTimeTables(nearestStation);
+
+      if (subwayTimeTables.isEmpty) {
+        return Result.error(
+            '서울시 공공 API에서 가장 가까운 $nearestStation역의 도착 정보를 제공하지 않습니다.');
+      }
+      return Result.success(subwayTimeTables);
     } catch (e) {
-      return Result.error(
-          '서울시 공공 API에서 가장 가까운 $nearestStation역의 도착 정보를 제공하지 않습니다.');
+      return const Result.error('네트워크 연결에 문제가 있습니다.');
     }
   }
 }

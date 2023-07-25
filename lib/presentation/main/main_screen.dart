@@ -38,40 +38,75 @@ class _MainScreenState extends State<MainScreen> {
             ? Text('가장 가까운 역 : ${state.timeTables[0].currentStation}역')
             : const Text('가장 가까운 역'),
       ),
-      body: Center(
-        child: state.isLoading
-            ? SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                child: const Center(child: CircularProgressIndicator()))
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  ...state.timeTables.map((e) => ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.green,
-                          child: Text(e.lineNumber.substring(3)),
-                        ),
-                        title: Text(e.subwayDirection),
-                        subtitle: Text(e.firstSubway),
-                      )),
-                ],
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            Center(
+                child: state.isLoading
+                    ? SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height *
+                            0.7, //MediaQuery.of(context).size.height,
+                        child: const Center(child: CircularProgressIndicator()))
+                    : state.isSearched
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              ...state.timeTables.map((e) => ListTile(
+                                    leading: CircleAvatar(
+                                      backgroundColor: Colors.green,
+                                      child: Text(e.lineNumber.substring(3)),
+                                    ),
+                                    title: Text(e.subwayDirection),
+                                    subtitle: Text(e.firstSubway),
+                                  )),
+                            ],
+                          )
+                        : const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 32),
+                            child: Center(
+                                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '검색 버튼을 누르면 현재 위치에서 가장 가까운 지하철 역의 시간표를 제공합니다.',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ],
+                            )),
+                          )),
+          ],
+        ),
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              viewModel.resetMainScreen();
+            },
+            child: const Icon(Icons.refresh_outlined),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.blue,
         onTap: (index) {
+          viewModel.setBottomNavBarIndex(index);
           viewModel.fetchNearestStationTimeTables();
         },
         currentIndex: state.bottomNavBarIndex,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            label: '가까운 역 시간표 찾기',
-            icon: Icon(Icons.search),
-          ),
-          BottomNavigationBarItem(
             label: '지하철 노선도',
             icon: Icon(Icons.map_outlined),
+          ),
+          BottomNavigationBarItem(
+            label: '검색',
+            icon: Icon(Icons.search_outlined),
           ),
         ],
       ),

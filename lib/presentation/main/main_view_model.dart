@@ -1,13 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:seoul_subway_info/domain/model/subway.dart';
+import 'package:injectable/injectable.dart';
 import 'package:seoul_subway_info/domain/use_case/find_nearest_station_use_case.dart';
 import 'package:seoul_subway_info/presentation/main/main_state.dart';
 
 import '../../core/result/result.dart';
 import 'main_ui_event.dart';
 
+@injectable
 class MainViewModel with ChangeNotifier {
   final FindNearestStationUseCase _findNearestStationUseCase;
 
@@ -42,12 +43,23 @@ class MainViewModel with ChangeNotifier {
         _eventController.add(const EndLoading());
       case Error(:final e):
         _eventController.add(ShowSnackBar(e));
+        _state = state.copyWith(
+          isLoading: false,
+        );
+        notifyListeners();
     }
   }
 
   void setBottomNavBarIndex(int index) {
     _state = state.copyWith(
       bottomNavBarIndex: index,
+    );
+    notifyListeners();
+  }
+
+  void resetMainScreen() {
+    _state = state.copyWith(
+      isSearched: false,
     );
     notifyListeners();
   }

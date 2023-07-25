@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'core/router/router.dart';
+import 'di/di_setup.dart';
 
-void main() {
+void main() async {
+  //WidgetsFlutterBinding.ensureInitialized();
+
+  //await configureDependencies();
   runApp(const MyApp());
 }
 

@@ -1,8 +1,10 @@
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:seoul_subway_info/data/api/subway_api_impl.dart';
 import 'package:seoul_subway_info/data/repository/subway_repository_impl.dart';
 import 'package:seoul_subway_info/presentation/main/main_view_model.dart';
 
+import '../../di/di_setup.dart';
 import '../../domain/use_case/find_nearest_station_use_case.dart';
 import '../../presentation/main/main_screen.dart';
 
@@ -16,7 +18,7 @@ final router = GoRouter(
         return ChangeNotifierProvider(
           create: (_) => MainViewModel(
             FindNearestStationUseCase(
-              SubwayRepositoryImpl(),
+              SubwayRepositoryImpl(SubwayApiImpl()),
             ),
           ),
           child: const MainScreen(),
@@ -25,3 +27,4 @@ final router = GoRouter(
     ),
   ],
 );
+// getIt<MainViewModel>(),
