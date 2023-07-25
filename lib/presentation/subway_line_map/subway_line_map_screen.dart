@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({Key? key}) : super(key: key);
+class SubwayLineMapScreen extends StatefulWidget {
+  const SubwayLineMapScreen({Key? key}) : super(key: key);
 
   @override
-  State<MapScreen> createState() => _MapScreenState();
+  State<SubwayLineMapScreen> createState() => _SubwayLineMapScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _SubwayLineMapScreenState extends State<SubwayLineMapScreen> {
   final controller = TransformationController();
 
   @override
