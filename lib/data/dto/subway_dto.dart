@@ -1,6 +1,3 @@
-import 'package:injectable/injectable.dart';
-
-@singleton
 class SubwayDto {
   SubwayDto({
     this.errorMessage,

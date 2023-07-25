@@ -1,13 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:injectable/injectable.dart';
 
 part 'subway.freezed.dart';
 
 part 'subway.g.dart';
 
 @freezed
-@singleton
 class Subway with _$Subway {
   /// trainLineNm - 당고개행 - 총신대입구(이수)방면
   /// statnNm - 현재 지하철역 명

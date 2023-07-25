@@ -17,20 +17,13 @@ final router = GoRouter(
       path: '/main',
       builder: (context, state) {
         return ChangeNotifierProvider(
-          create: (_) => MainViewModel(
-            FindNearestStationUseCase(
-              SubwayRepositoryImpl(SubwayApiImpl()),
-            ),
-          ),
+          create: (_) => getIt.get<MainViewModel>(),
           child: const MainScreen(),
         );
       },
     ),
     GoRoute(
-        path: '/map',
-        builder: (context, state) {
-          return const SubwayLineMapScreen();
-        })
+        path: '/map', builder: (context, state) => const SubwayLineMapScreen())
   ],
 );
 // getIt<MainViewModel>(),

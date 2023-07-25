@@ -24,8 +24,8 @@ mixin _$Subway {
   String get subwayDirection => throw _privateConstructorUsedError;
   @JsonKey(name: 'statnNm')
   String get currentStation => throw _privateConstructorUsedError;
-  @JsonKey(name: 'statnTid')
-  String get nextStation => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updnLine')
+  String get upDownLine => throw _privateConstructorUsedError;
   @JsonKey(name: 'subwayId')
   String get lineNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'bstatnNm')
@@ -34,7 +34,7 @@ mixin _$Subway {
   String get firstSubway => throw _privateConstructorUsedError;
   @JsonKey(name: 'arvlMsg3')
   String get secondSubway => throw _privateConstructorUsedError;
-  @JsonKey(name: 'arvlCd')
+  @JsonKey(name: 'barvlDt')
   String get arrivalTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,12 +50,12 @@ abstract class $SubwayCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'trainLineNm') String subwayDirection,
       @JsonKey(name: 'statnNm') String currentStation,
-      @JsonKey(name: 'statnTid') String nextStation,
+      @JsonKey(name: 'updnLine') String upDownLine,
       @JsonKey(name: 'subwayId') String lineNumber,
       @JsonKey(name: 'bstatnNm') String terminalStation,
       @JsonKey(name: 'arvlMsg2') String firstSubway,
       @JsonKey(name: 'arvlMsg3') String secondSubway,
-      @JsonKey(name: 'arvlCd') String arrivalTime});
+      @JsonKey(name: 'barvlDt') String arrivalTime});
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$SubwayCopyWithImpl<$Res, $Val extends Subway>
   $Res call({
     Object? subwayDirection = null,
     Object? currentStation = null,
-    Object? nextStation = null,
+    Object? upDownLine = null,
     Object? lineNumber = null,
     Object? terminalStation = null,
     Object? firstSubway = null,
@@ -89,9 +89,9 @@ class _$SubwayCopyWithImpl<$Res, $Val extends Subway>
           ? _value.currentStation
           : currentStation // ignore: cast_nullable_to_non_nullable
               as String,
-      nextStation: null == nextStation
-          ? _value.nextStation
-          : nextStation // ignore: cast_nullable_to_non_nullable
+      upDownLine: null == upDownLine
+          ? _value.upDownLine
+          : upDownLine // ignore: cast_nullable_to_non_nullable
               as String,
       lineNumber: null == lineNumber
           ? _value.lineNumber
@@ -126,12 +126,12 @@ abstract class _$$_SubwayCopyWith<$Res> implements $SubwayCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'trainLineNm') String subwayDirection,
       @JsonKey(name: 'statnNm') String currentStation,
-      @JsonKey(name: 'statnTid') String nextStation,
+      @JsonKey(name: 'updnLine') String upDownLine,
       @JsonKey(name: 'subwayId') String lineNumber,
       @JsonKey(name: 'bstatnNm') String terminalStation,
       @JsonKey(name: 'arvlMsg2') String firstSubway,
       @JsonKey(name: 'arvlMsg3') String secondSubway,
-      @JsonKey(name: 'arvlCd') String arrivalTime});
+      @JsonKey(name: 'barvlDt') String arrivalTime});
 }
 
 /// @nodoc
@@ -146,7 +146,7 @@ class __$$_SubwayCopyWithImpl<$Res>
   $Res call({
     Object? subwayDirection = null,
     Object? currentStation = null,
-    Object? nextStation = null,
+    Object? upDownLine = null,
     Object? lineNumber = null,
     Object? terminalStation = null,
     Object? firstSubway = null,
@@ -162,9 +162,9 @@ class __$$_SubwayCopyWithImpl<$Res>
           ? _value.currentStation
           : currentStation // ignore: cast_nullable_to_non_nullable
               as String,
-      nextStation: null == nextStation
-          ? _value.nextStation
-          : nextStation // ignore: cast_nullable_to_non_nullable
+      upDownLine: null == upDownLine
+          ? _value.upDownLine
+          : upDownLine // ignore: cast_nullable_to_non_nullable
               as String,
       lineNumber: null == lineNumber
           ? _value.lineNumber
@@ -196,12 +196,12 @@ class _$_Subway with DiagnosticableTreeMixin implements _Subway {
   const _$_Subway(
       {@JsonKey(name: 'trainLineNm') required this.subwayDirection,
       @JsonKey(name: 'statnNm') required this.currentStation,
-      @JsonKey(name: 'statnTid') required this.nextStation,
+      @JsonKey(name: 'updnLine') required this.upDownLine,
       @JsonKey(name: 'subwayId') required this.lineNumber,
       @JsonKey(name: 'bstatnNm') required this.terminalStation,
       @JsonKey(name: 'arvlMsg2') required this.firstSubway,
       @JsonKey(name: 'arvlMsg3') required this.secondSubway,
-      @JsonKey(name: 'arvlCd') required this.arrivalTime});
+      @JsonKey(name: 'barvlDt') required this.arrivalTime});
 
   factory _$_Subway.fromJson(Map<String, dynamic> json) =>
       _$$_SubwayFromJson(json);
@@ -213,8 +213,8 @@ class _$_Subway with DiagnosticableTreeMixin implements _Subway {
   @JsonKey(name: 'statnNm')
   final String currentStation;
   @override
-  @JsonKey(name: 'statnTid')
-  final String nextStation;
+  @JsonKey(name: 'updnLine')
+  final String upDownLine;
   @override
   @JsonKey(name: 'subwayId')
   final String lineNumber;
@@ -228,12 +228,12 @@ class _$_Subway with DiagnosticableTreeMixin implements _Subway {
   @JsonKey(name: 'arvlMsg3')
   final String secondSubway;
   @override
-  @JsonKey(name: 'arvlCd')
+  @JsonKey(name: 'barvlDt')
   final String arrivalTime;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Subway(subwayDirection: $subwayDirection, currentStation: $currentStation, nextStation: $nextStation, lineNumber: $lineNumber, terminalStation: $terminalStation, firstSubway: $firstSubway, secondSubway: $secondSubway, arrivalTime: $arrivalTime)';
+    return 'Subway(subwayDirection: $subwayDirection, currentStation: $currentStation, upDownLine: $upDownLine, lineNumber: $lineNumber, terminalStation: $terminalStation, firstSubway: $firstSubway, secondSubway: $secondSubway, arrivalTime: $arrivalTime)';
   }
 
   @override
@@ -243,7 +243,7 @@ class _$_Subway with DiagnosticableTreeMixin implements _Subway {
       ..add(DiagnosticsProperty('type', 'Subway'))
       ..add(DiagnosticsProperty('subwayDirection', subwayDirection))
       ..add(DiagnosticsProperty('currentStation', currentStation))
-      ..add(DiagnosticsProperty('nextStation', nextStation))
+      ..add(DiagnosticsProperty('upDownLine', upDownLine))
       ..add(DiagnosticsProperty('lineNumber', lineNumber))
       ..add(DiagnosticsProperty('terminalStation', terminalStation))
       ..add(DiagnosticsProperty('firstSubway', firstSubway))
@@ -260,8 +260,8 @@ class _$_Subway with DiagnosticableTreeMixin implements _Subway {
                 other.subwayDirection == subwayDirection) &&
             (identical(other.currentStation, currentStation) ||
                 other.currentStation == currentStation) &&
-            (identical(other.nextStation, nextStation) ||
-                other.nextStation == nextStation) &&
+            (identical(other.upDownLine, upDownLine) ||
+                other.upDownLine == upDownLine) &&
             (identical(other.lineNumber, lineNumber) ||
                 other.lineNumber == lineNumber) &&
             (identical(other.terminalStation, terminalStation) ||
@@ -280,7 +280,7 @@ class _$_Subway with DiagnosticableTreeMixin implements _Subway {
       runtimeType,
       subwayDirection,
       currentStation,
-      nextStation,
+      upDownLine,
       lineNumber,
       terminalStation,
       firstSubway,
@@ -305,12 +305,12 @@ abstract class _Subway implements Subway {
   const factory _Subway(
       {@JsonKey(name: 'trainLineNm') required final String subwayDirection,
       @JsonKey(name: 'statnNm') required final String currentStation,
-      @JsonKey(name: 'statnTid') required final String nextStation,
+      @JsonKey(name: 'updnLine') required final String upDownLine,
       @JsonKey(name: 'subwayId') required final String lineNumber,
       @JsonKey(name: 'bstatnNm') required final String terminalStation,
       @JsonKey(name: 'arvlMsg2') required final String firstSubway,
       @JsonKey(name: 'arvlMsg3') required final String secondSubway,
-      @JsonKey(name: 'arvlCd') required final String arrivalTime}) = _$_Subway;
+      @JsonKey(name: 'barvlDt') required final String arrivalTime}) = _$_Subway;
 
   factory _Subway.fromJson(Map<String, dynamic> json) = _$_Subway.fromJson;
 
@@ -321,8 +321,8 @@ abstract class _Subway implements Subway {
   @JsonKey(name: 'statnNm')
   String get currentStation;
   @override
-  @JsonKey(name: 'statnTid')
-  String get nextStation;
+  @JsonKey(name: 'updnLine')
+  String get upDownLine;
   @override
   @JsonKey(name: 'subwayId')
   String get lineNumber;
@@ -336,7 +336,7 @@ abstract class _Subway implements Subway {
   @JsonKey(name: 'arvlMsg3')
   String get secondSubway;
   @override
-  @JsonKey(name: 'arvlCd')
+  @JsonKey(name: 'barvlDt')
   String get arrivalTime;
   @override
   @JsonKey(ignore: true)

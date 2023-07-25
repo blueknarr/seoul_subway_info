@@ -5,6 +5,7 @@ import 'package:seoul_subway_info/domain/repository/subway_repository.dart';
 
 import '../api/subway_api_impl.dart';
 
+@prod
 @Singleton(as: SubwayRepository)
 class SubwayRepositoryImpl implements SubwayRepository {
   final SubwayApiImpl api;

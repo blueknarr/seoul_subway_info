@@ -6,7 +6,7 @@ import 'package:seoul_subway_info/data/dto/subway_dto.dart';
 import '../../domain/api/subway_api.dart';
 import 'package:http/http.dart' as http;
 
-@Singleton(as: SubwayApi)
+@singleton
 class SubwayApiImpl implements SubwayApi {
   @override
   Future<SubwayDto> getSubwayTimeTables(String station) async {

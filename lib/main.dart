@@ -3,9 +3,9 @@ import 'core/router/router.dart';
 import 'di/di_setup.dart';
 
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  //await configureDependencies();
+  configureDependencies();
   runApp(const MyApp());
 }
 
