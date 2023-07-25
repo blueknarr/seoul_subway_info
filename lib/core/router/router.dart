@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:seoul_subway_info/data/api/subway_api_impl.dart';
 import 'package:seoul_subway_info/data/repository/subway_repository_impl.dart';
 import 'package:seoul_subway_info/presentation/main/main_view_model.dart';
+import 'package:seoul_subway_info/presentation/subway_line_map/map_screen.dart';
 
 import '../../di/di_setup.dart';
 import '../../domain/use_case/find_nearest_station_use_case.dart';
@@ -25,6 +26,11 @@ final router = GoRouter(
         );
       },
     ),
+    GoRoute(
+        path: '/map',
+        builder: (context, state) {
+          return const MapScreen();
+        })
   ],
 );
 // getIt<MainViewModel>(),

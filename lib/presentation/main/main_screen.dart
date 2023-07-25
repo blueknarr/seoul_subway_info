@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:seoul_subway_info/presentation/main/main_ui_event.dart';
 import 'package:seoul_subway_info/presentation/main/main_view_model.dart';
+
+import '../../data/data_source/local/station_location_info.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -57,7 +60,8 @@ class _MainScreenState extends State<MainScreen> {
                             children: [
                               ...state.timeTables.map((e) => ListTile(
                                     leading: CircleAvatar(
-                                      backgroundColor: Colors.green,
+                                      backgroundColor:
+                                          subwayLineColor[e.lineNumber],
                                       child: Text(e.lineNumber.substring(3)),
                                     ),
                                     title: Text(e.subwayDirection),
@@ -96,7 +100,11 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.blue,
         onTap: (index) {
           viewModel.setBottomNavBarIndex(index);
-          viewModel.fetchNearestStationTimeTables();
+          if (index == 0) {
+            context.push('/map');
+          } else if (index == 1) {
+            viewModel.fetchNearestStationTimeTables();
+          }
         },
         currentIndex: state.bottomNavBarIndex,
         items: const <BottomNavigationBarItem>[
