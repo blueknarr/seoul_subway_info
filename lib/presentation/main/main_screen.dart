@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:seoul_subway_info/presentation/main/main_ui_event.dart';
 import 'package:seoul_subway_info/presentation/main/main_view_model.dart';
 
-import '../../data/data_source/local/station_location_info.dart';
+import '../ui/subway_line_color.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

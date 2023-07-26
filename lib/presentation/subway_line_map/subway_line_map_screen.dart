@@ -13,7 +13,7 @@ class _SubwayLineMapScreenState extends State<SubwayLineMapScreen> {
   @override
   void initState() {
     super.initState();
-    controller.value = Matrix4.identity() * 2.5;
+    controller.value = Matrix4.identity() * 4.5;
   }
 
   @override
@@ -30,14 +30,14 @@ class _SubwayLineMapScreenState extends State<SubwayLineMapScreen> {
       ),
       body: Center(
           child: SizedBox(
-        height: 400,
+        height: 550,
         child: InteractiveViewer(
-          boundaryMargin: const EdgeInsets.all(20.0),
+          boundaryMargin: const EdgeInsets.all(10.0),
           transformationController: controller,
-          minScale: 0.5,
-          maxScale: 3.0,
+          minScale: 2.5,
+          maxScale: 6.0,
           child: Stack(children: [
-            Image.asset('lib/data/data_source/local/seoul_subway_line.jpg',
+            Image.asset('assets/images/seoul_subway_line.jpg',
                 fit: BoxFit.fitWidth),
           ]),
         ),
