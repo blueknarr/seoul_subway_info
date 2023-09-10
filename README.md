@@ -17,6 +17,4 @@
 
 ## Play 스토어 앱 출시
 
-<p align="center">
-  <img src="https://github.com/blueknarr/seoul_subway_info/assets/44389424/ca59f833-9340-46e3-a701-407c6c408bb1" align="center" width="75%">
-</p>
+https://play.google.com/store/apps/details?id=com.sesac.seoul_subway_info
